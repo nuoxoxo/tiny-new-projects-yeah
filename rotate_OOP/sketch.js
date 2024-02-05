@@ -1,7 +1,7 @@
 const Offset = 42
 const Usize = 42
 
-class Chip {
+class Something {
   constructor (r, c, size) {
     this.offset = Offset
     this.r = r
@@ -14,17 +14,14 @@ class Chip {
     translate(this.c, this.r)
     let angle = atan2( mouseY - this.r, mouseX - this.c )
     rotate( angle )
-    let ofs = this.offset
-    //line(0, 0, /*this.c + */ofs, /*this.r + */ofs,)
-    //rect (0, 0, this.size/2, this.size)
     rect (0, 0, 0, this.offset)
     pop()
   }
 }
 
 unit_size = Usize
-D = []
-let R, C
+things = []
+R, C // used later in draw
 
 function setup() {
 
@@ -41,10 +38,10 @@ function setup() {
   stroke(250,210,0,120)
   while (++r < R) {
     let c = -1
-    D[r] = []
+    things [r] = []
     while (++c < C) {
       fill( Bright_gold )
-      D[r][c] = new Chip( 
+      things [r][c] = new Something( 
         unit_size / 2 + r * unit_size, 
         unit_size / 2 + c * unit_size, 
         unit_size
@@ -59,7 +56,7 @@ function draw () {
   while (++r < R) {
     c = -1
     while (++c < C) {
-      D[r][c]._rotate()
+      things[r][c]._rotate()
     }
   }
 }
