@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: __⭐ 這裡寫名字_ 
+name: p5thingy
 
 on:
   # Runs on pushes targeting the default branch
@@ -46,6 +46,6 @@ jobs:
         with:
           # Upload dist repository
           path: './dist'
-      - name: __⭐ 這裡寫名字__ 
+      - name: p5thingy 
         id: deployment
         uses: actions/deploy-pages@v1
